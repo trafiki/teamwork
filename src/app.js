@@ -5,7 +5,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
-app.get('/', (req, res) => res.status(200).send({ message: 'YAY! Congratulations! Your first endpoint is working' }));
+app.get('/v1', (req, res) => res.status(200).send({ message: 'YAY! Congratulations! Your first endpoint is working' }));
 
 app.listen(PORT, () => {
   console.log('app running on port ', PORT);
