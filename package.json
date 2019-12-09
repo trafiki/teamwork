@@ -2,11 +2,11 @@
   "name": "teamwork",
   "version": "1.0.0",
   "description": "Teamwork is an internal social network for employees of an organization.",
-  "main": "app.js",
+  "main": ".src/app.js",
   "scripts": {
     "test": "mocha || exit 0",
-    "build": "babel app.js --out-dir build",
-    "dev-start": "babel-watch app.js",
+    "build": "babel ./src/app.js --out-dir build",
+    "dev-start": "babel-watch ./src/app.js",
     "migrate": "babel-node ./src/database/createTables"
   },
   "repository": {
