@@ -7,6 +7,12 @@ app.use(express.json());
 
 app.get('/', (req, res) => res.status(200).send({ message: 'YAY! Congratulations! Your first endpoint is working' }));
 
+app.listen(PORT, () => {
+  console.log('app running on port ', PORT);
+});
+module.exports = app;
+// npm run dev-start
+
 // app.get('/', (req, res) => {
 //   res.json({ status: 'success', message: 'Welcome To Testing API' });
 // });
@@ -20,9 +26,3 @@ app.get('/', (req, res) => res.status(200).send({ message: 'YAY! Congratulations
 //     result: add(num1, num2),
 //   });
 // });
-
-app.listen(PORT, () => {
-  console.log('app running on port ', PORT);
-});
-module.exports = app;
-// npm run dev-start
