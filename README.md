@@ -53,7 +53,7 @@ Codes are written in accordance with Airbnb JavaScript style guide, see [here](h
 ## Installation
 1. Clone this repository into your local machine:
 ```
-https://github.com/marusoft/teamwork
+https://github.com/trafiki/teamwork
 ```
 2. Navigate into the cloned repository in your machine:
 ```
@@ -110,4 +110,4 @@ npm run start:dev
 
 ## Author
 
-- Alimi Kehinde Morufudeen
+- Akerele Babatunde Oluwaseyi
