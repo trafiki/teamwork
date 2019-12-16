@@ -48,6 +48,13 @@ class Users {
       });
     }
   }
+
+  // /**
+  //  * Login a user
+  //  *
+  //  */
+  // static async loginUsers(req, res) {
+  // }
 }
 
 export default Users;

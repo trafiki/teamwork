@@ -11,6 +11,8 @@ app.use('/api/v1', userRouter);
 
 app.get('/api/v1', (req, res) => res.status(200).send({ message: 'Welcome to Teamwork, a space that fosters collaboration.' }));
 
+app.get('*', (req, res) => res.status(404).send({ message: 'api endpoint not found' }));
+
 app.listen(PORT, () => {
   console.log('app running on port ', PORT);
 });
