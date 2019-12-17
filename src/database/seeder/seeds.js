@@ -9,7 +9,7 @@ const password = process.env.PASSWORD;
 const hashedPassword = Helper.hashPassword(password);
 
 const addAllsqlTableQueries = `
-      INSERT INTO users(username, firstName, lastName, email, password, gender, jobRole, department, address)
+      INSERT INTO users(username, firstname, lastname, email, password, gender, jobrole, department, address)
       VALUES ('trafiki' ,'Babatunde', 'Akerele', 'trafiki@teamwork.com', '${hashedPassword}', 'male', 'admin', 'HR', 'oko oba gra, lagos'),
              ( 'anu' ,'Anuoluwapo', 'Shittu', 'anu@teamwork.com', '${hashedPassword}', 'female', 'employee', 'Engineering' ,'Oko Oba, Lagos');
       `;
