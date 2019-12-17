@@ -25,7 +25,6 @@ class UserAuthentication {
     if (!payload) {
       return { error: 'token' };
     }
-    console.log(payload, token);
     return payload;
   }
 
@@ -86,6 +85,7 @@ class UserAuthentication {
     }
 
     if (payload.jobrole !== 'admin') {
+      console.log(payload);
       return res.status(403).json({
         status: 403,
         error: 'only admin can generate employee account',

@@ -4,11 +4,11 @@ import pool from '../connection';
 const articlesTable = `
 DROP TABLE IF EXISTS articles CASCADE;
   CREATE TABLE IF NOT EXISTS articles(
-    articleId SERIAL PRIMARY KEY NOT NULL,
-    authorId INTEGER NOT NULL,
+    articleid SERIAL PRIMARY KEY NOT NULL,
+    authorid INTEGER NOT NULL,
     title VARCHAR(128) NOT NULL,
     article TEXT NOT NULL,
-    createdOn TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    createdon TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (authorId) REFERENCES users(id) ON DELETE CASCADE
   )`;
 

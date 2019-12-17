@@ -67,7 +67,7 @@ npm install
 
 5. Start the application by running
 ```
-npm run start:dev
+npm run dev-start
 ```
 6. Install `postman` to test all endpoints
 

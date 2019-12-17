@@ -17,10 +17,10 @@ class Users {
   */
   static async createUsers(req, res) {
     const {
-      username, firstName, lastName, email, password, gender, jobRole, department, address,
+      username, firstname, lastname, email, password, gender, jobrole, department, address,
     } = req.body;
     const hashedPassword = Helper.hashPassword(password);
-    const values = [username, firstName, lastName, email, hashedPassword, gender, jobRole,
+    const values = [username, firstname, lastname, email, hashedPassword, gender, jobrole,
       department, address];
 
     try {
@@ -29,8 +29,8 @@ class Users {
       const token = Helper.generateToken({
         id,
         username,
-        firstName,
-        lastName,
+        firstname,
+        lastname,
         email,
       });
       return res.status(201).json({
@@ -49,12 +49,60 @@ class Users {
     }
   }
 
-  // /**
-  //  * Login a user
-  //  *
-  //  */
-  // static async loginUsers(req, res) {
-  // }
+  /**
+   * Login a user
+   * Admin/Employees can sign in
+   * @static
+   * @param { object } req - The request object
+   * @param { object } res - The response object
+   * @return { object } JSON representing success message
+   * @memberof Users
+   */
+  static async loginUsers(req, res) {
+    const { email } = req.body;
+    const value = [email];
+    try {
+      const { rows } = await pool.query(findIfUserExist, value);
+      if (rows[0]) {
+        const validPassword = Helper.verifyPassword(rows[0].password, req.body.password);
+        if (validPassword) {
+          const {
+            id,
+            username,
+            firstname,
+            lastname,
+            jobrole,
+          } = rows[0];
+          const token = Helper.generateToken({
+            id,
+            username,
+            firstname,
+            lastname,
+            jobrole,
+            email,
+          });
+          return res.status(200).json({
+            status: 'success',
+            data: {
+              username,
+              message: 'Your login was successful',
+              id,
+              token,
+            },
+          });
+        }
+        return res.status(401).json({
+          status: 'unauthorized',
+          error: 'Email or password incorrect',
+        });
+      }
+    } catch (error) {
+      res.status(500).json({
+        status: 500,
+        error: error.message,
+      });
+    }
+  }
 }
 
 export default Users;
